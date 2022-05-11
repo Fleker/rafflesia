@@ -1,0 +1,20 @@
+{
+  "name": "Rafflesia for Overleaf",
+  "description": "Handy tools for Overleaf",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["https://*.overleaf.com/project/*"],
+  "content_scripts": [
+      {
+          "matches": ["https://*.overleaf.com/project/*"],
+          "run_at": "document_end",
+          "js": ["content-script.js"],
+          "all_frames": true
+      }
+  ],
+  "web_accessible_resources": [{
+      "resources": ["webpage-script.js"],
+      "matches": ["<all_urls>"]
+  }]
+}
