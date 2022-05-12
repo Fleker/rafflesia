@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { labels, ToolId } from './tools/tool-registry';
+
+type ToolSettings = Record<ToolId, boolean>
 
 @Component({
   selector: 'app-root',
@@ -7,7 +10,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'rafflesia';
-  tools = {
-    dictionary: true
+  labels = labels;
+  tools: ToolSettings = {
+    wiktionary: true,
+    quiver: true,
+    tables: true,
+    citations: true,
   }
 }
