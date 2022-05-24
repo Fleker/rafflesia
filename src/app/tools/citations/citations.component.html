@@ -1,1 +1,9 @@
-<iframe src="https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex">
+<input type="url" [(ngModel)]="articleUrl" />
+<button mat-button (click)="import()">Import</button>
+
+<br><br>
+<button mat-button (click)="copy()">
+  <mat-icon>content_copy</mat-icon>
+</button>
+<br>
+<textarea disabled>{{bibtex}}</textarea>

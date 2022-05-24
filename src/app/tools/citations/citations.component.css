@@ -1,0 +1,8 @@
+textarea {
+  width: 40em;
+  height: 20em;
+}
+
+input[type='url'] {
+  width: 360px;
+}
