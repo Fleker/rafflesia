@@ -1,9 +1,13 @@
 <input type="url" [(ngModel)]="articleUrl" />
-<button mat-button (click)="import()">Import</button>
+<button mat-raised-button (click)="import()">Import</button>
+<button mat-raised-button (click)="openBibtex()">Open main.bib</button>
 
 <br><br>
-<button mat-button (click)="copy()">
+<button mat-raised-button (click)="copy()">
   <mat-icon>content_copy</mat-icon>
+</button>
+<button mat-raised-button (click)="insert()">
+  <mat-icon>add</mat-icon>
 </button>
 <br>
 <textarea disabled>{{bibtex}}</textarea>

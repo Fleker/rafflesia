@@ -1,4 +1,8 @@
+type EventType = 'rafflesia_copy' |
+  'rafflesia_open' |
+  'rafflesia_insert'
+
 export interface Event {
-  type: 'rafflesia_copy'
+  type: EventType
   data: any
 }

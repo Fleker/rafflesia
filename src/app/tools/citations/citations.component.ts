@@ -144,6 +144,24 @@ export class CitationsComponent implements OnInit {
       type: 'rafflesia_copy',
       data: this.bibtex
     }
-    window.parent.postMessage(JSON.stringify(msg), '*')
+    window.parent.postMessage(msg, '*')
+  }
+
+  openBibtex() {
+    console.log('openBibtex')
+    const msg: Event = {
+      type: 'rafflesia_open',
+      data: 'main.bib'
+    }
+    window.parent.postMessage(msg, '*')
+  }
+
+  insert() {
+    if (!this.bibtex) return // Nothing
+    const msg: Event = {
+      type: 'rafflesia_insert',
+      data: this.bibtex
+    }
+    window.parent.postMessage(msg, '*')
   }
 }
