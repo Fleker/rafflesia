@@ -1,0 +1,8 @@
+<h1>Enabled Tools</h1>
+<div *ngFor="let tool of tools">
+  <mat-slide-toggle *ngIf="tool !== 'settings'"
+    [checked]="isEnabled(tool)"
+    (change)="updateToolEnabled($event, tool)">
+    {{labels[tool]}}
+  </mat-slide-toggle>
+</div>

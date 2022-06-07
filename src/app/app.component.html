@@ -1,14 +1,17 @@
 <mat-tab-group>
-  <mat-tab label="{{labels.wiktionary}}" *ngIf="tools.wiktionary">
+  <mat-tab label="{{labels.wiktionary}}" *ngIf="hasTool('wiktionary')">
     <tool-wikitionary></tool-wikitionary>
   </mat-tab>
-  <mat-tab label="{{labels.quiver}}" *ngIf="tools.quiver">
+  <mat-tab label="{{labels.quiver}}" *ngIf="hasTool('quiver')">
     <tool-quiver></tool-quiver>
   </mat-tab>
-  <mat-tab label="{{labels.tables}}" *ngIf="tools.tables">
+  <mat-tab label="{{labels.tables}}" *ngIf="hasTool('tables')">
     <tool-tables></tool-tables>
   </mat-tab>
-  <mat-tab label="{{labels.citations}}" *ngIf="tools.citations">
+  <mat-tab label="{{labels.citations}}" *ngIf="hasTool('citations')">
     <tool-citations></tool-citations>
+  </mat-tab>
+  <mat-tab label="{{labels.settings}}">
+    <tool-settings></tool-settings>
   </mat-tab>
 </mat-tab-group>

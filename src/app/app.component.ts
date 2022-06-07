@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { labels, ToolId } from './tools/tool-registry';
+import { isEnabled, labels, ToolId } from './tools/tool-registry';
 
 type ToolSettings = Record<ToolId, boolean>
 
@@ -12,9 +12,14 @@ export class AppComponent {
   title = 'rafflesia';
   labels = labels;
   tools: ToolSettings = {
-    wiktionary: true,
+    wiktionary: false,
     quiver: true,
     tables: true,
     citations: true,
+    settings: true,
+  }
+
+  hasTool(tool: ToolId) {
+    return isEnabled(tool)
   }
 }

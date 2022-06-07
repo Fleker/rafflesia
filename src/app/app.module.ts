@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {MatButtonModule} from '@angular/material/button';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon'
 import { WikitionaryComponent } from './tools/wikitionary/wikitionary.component';
 import { QuiverComponent } from './tools/quiver/quiver.component';
 import { TablesComponent } from './tools/tables/tables.component';
-import { CitationsComponent } from './tools/citations/citations.component'
+import { CitationsComponent } from './tools/citations/citations.component';
+import { SettingsComponent } from './tools/settings/settings.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { CitationsComponent } from './tools/citations/citations.component'
     WikitionaryComponent,
     QuiverComponent,
     TablesComponent,
-    CitationsComponent
+    CitationsComponent,
+    SettingsComponent
   ],
   imports: [
     AppRoutingModule,
@@ -29,6 +32,7 @@ import { CitationsComponent } from './tools/citations/citations.component'
     FormsModule,
     MatButtonModule,
     MatIconModule,
+    MatSlideToggleModule,
     MatTabsModule,
   ],
   providers: [
