@@ -105,7 +105,7 @@ window.addEventListener('message', (e) => {
   const {data} = e
   const parsedEvent = data
   const parsedData = parsedEvent.data
-  console.log('Received event', parsedEvent.type)
+  console.debug('Received event', parsedEvent.type)
   switch (parsedEvent.type) {
     case 'rafflesia_copy':
       navigator.clipboard.writeText(parsedData)
@@ -118,6 +118,21 @@ window.addEventListener('message', (e) => {
       break
     case 'rafflesia_open':
       openFile(parsedData)
+      break
+    case 'rafflesia_create':
+      createFileNamed(parsedData)
+      setTimeout(() => {
+        e.source.postMessage({
+          type: 'rafflesia_getProjectFiles',
+          data: getAllProjectFiles(),
+        }, e.origin)
+      }, 1000)
+      break
+    case 'rafflesia_getProjectFiles':
+      e.source.postMessage({
+        type: 'rafflesia_getProjectFiles',
+        data: getAllProjectFiles(),
+      }, e.origin)
       break
   }
 })

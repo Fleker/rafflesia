@@ -111,10 +111,26 @@ function citationToBibtex(citation: CitationMisc) {
 export class CitationsComponent implements OnInit {
   articleUrl?: string
   bibtex?: string
+  mainbib = ['main.bib']
 
   constructor() {}
 
   ngOnInit(): void {
+    window.addEventListener('message', e => {
+      const parsedEvent = e.data
+      // console.log(parsedEvent)
+      if (parsedEvent?.type === 'rafflesia_getProjectFiles') {
+        const files = parsedEvent.data.map((x: any) => x.name)
+          .filter((x: string) => x.endsWith('.bib'))
+        this.mainbib = files
+      }
+    })
+
+    const msg: Event = {
+      type: 'rafflesia_getProjectFiles',
+      data: {},
+    }
+    window.parent.postMessage(msg, '*')
   }
 
   async import() {
@@ -147,11 +163,21 @@ export class CitationsComponent implements OnInit {
     window.parent.postMessage(msg, '*')
   }
 
-  openBibtex() {
-    console.log('openBibtex')
+  openBibtex(filename: string) {
     const msg: Event = {
       type: 'rafflesia_open',
-      data: 'main.bib'
+      data: filename,
+    }
+    window.parent.postMessage(msg, '*')
+  }
+
+  newBibtex(filename?: string) {
+    if (!filename) {
+      filename = prompt('Filename', 'main.bib') ?? 'main.bib'
+    }
+    const msg: Event = {
+      type: 'rafflesia_create',
+      data: filename,
     }
     window.parent.postMessage(msg, '*')
   }

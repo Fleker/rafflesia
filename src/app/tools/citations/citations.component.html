@@ -1,8 +1,19 @@
 <input type="url" [(ngModel)]="articleUrl" />
 <button mat-raised-button (click)="import()">Import</button>
-<button mat-raised-button (click)="openBibtex()">Open main.bib</button>
+<br>
+<br>
 
+<button mat-raised-button *ngFor="let file of mainbib" (click)="openBibtex(file)">
+  Open {{file}}
+</button>
+<button mat-raised-button *ngIf="mainbib" (click)="newBibtex()">
+  New .bib file
+</button>
+<button mat-raised-button *ngIf="!mainbib" (click)="newBibtex('main.bib')">
+  Create main.bib
+</button>
 <br><br>
+
 <button mat-raised-button (click)="copy()">
   <mat-icon>content_copy</mat-icon>
 </button>
