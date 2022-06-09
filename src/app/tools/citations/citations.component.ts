@@ -118,7 +118,6 @@ export class CitationsComponent implements OnInit {
   ngOnInit(): void {
     window.addEventListener('message', e => {
       const parsedEvent = e.data
-      // console.log(parsedEvent)
       if (parsedEvent?.type === 'rafflesia_getProjectFiles') {
         const files = parsedEvent.data.map((x: any) => x.name)
           .filter((x: string) => x.endsWith('.bib'))
@@ -126,6 +125,10 @@ export class CitationsComponent implements OnInit {
       }
     })
 
+    this.refreshProjectFiles()
+  }
+
+  refreshProjectFiles() {
     const msg: Event = {
       type: 'rafflesia_getProjectFiles',
       data: {},
@@ -138,8 +141,6 @@ export class CitationsComponent implements OnInit {
     try {
       const res = await fetch(`https://cors-anywhere.herokuapp.com/${this.articleUrl.trim()}`)
       const html = await res.text()
-      // console.log(res)
-      // console.log(html)
       const titles = getTitles(html)
       const citation: CitationMisc = {
         id: getId(this.articleUrl),

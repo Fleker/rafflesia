@@ -3,6 +3,9 @@
 <br>
 <br>
 
+<button mat-raised-button (click)="refreshProjectFiles()">
+  <mat-icon>refresh</mat-icon>
+</button>
 <button mat-raised-button *ngFor="let file of mainbib" (click)="openBibtex(file)">
   Open {{file}}
 </button>
@@ -22,3 +25,4 @@
 </button>
 <br>
 <textarea disabled>{{bibtex}}</textarea>
+<br><br>
