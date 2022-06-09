@@ -5,6 +5,23 @@
   Your comments, notes, and TODOs will show up here.
 </p>
 
+<div *ngIf="chats">
+  <h3>Messages ({{chats.length}})</h3>
+  <small>
+    Add '% > (name): text' and they will appear here.
+  </small>
+  <ul>
+    <li *ngFor="let chat of chats">
+      <a href="#" (click)="gotoLine(chat.line)">
+        <strong>
+          {{chat.author}}:
+        </strong>
+        {{chat.value}}
+      </a>
+    </li>
+  </ul>
+</div>
+
 <div *ngIf="todos">
   <h3>TODOs ({{todos.length}})</h3>
   <small>

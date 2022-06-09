@@ -8,6 +8,11 @@ import { Event } from 'src/app/event';
 })
 export class CommentsComponent implements OnInit {
   draft?: string
+  chats?: {
+    line: number
+    author: string
+    value: string
+  }[]
   todos?: {
     line: number
     value: string
@@ -37,17 +42,28 @@ export class CommentsComponent implements OnInit {
 
   parseDocContents() {
     this.todos = []
-    const todoStarts = ['% todo', '% TODO', '% fixme', '% FIXME', '% note', '% NOTE']
+    this.chats = []
+    const todoStarts = ['% todo', '% fixme', '% note']
+    const chatRegex = new RegExp('% > \\((\\w+)\\) (.*)')
     const lines = this.draft!.split('\n')
     lines.forEach((line, i) => {
       for (const start of todoStarts) {
-        const lineIndex = line.indexOf(start)
+        const lineIndex = line.toLowerCase().indexOf(start)
         if (lineIndex > -1) {
           this.todos?.push({
             line: i + 1,
             value: line.substr(lineIndex),
           })
         }
+      }
+      const chatMatch = chatRegex.exec(line)
+      if (chatMatch !== null) {
+        console.log(chatMatch)
+        this.chats?.push({
+          line: i + 1,
+          author: chatMatch[1],
+          value: chatMatch[2],
+        })
       }
     })
   }
