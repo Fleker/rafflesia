@@ -14,7 +14,8 @@ import { WikitionaryComponent } from './tools/wikitionary/wikitionary.component'
 import { QuiverComponent } from './tools/quiver/quiver.component';
 import { TablesComponent } from './tools/tables/tables.component';
 import { CitationsComponent } from './tools/citations/citations.component';
-import { SettingsComponent } from './tools/settings/settings.component'
+import { SettingsComponent } from './tools/settings/settings.component';
+import { CommentsComponent } from './tools/comments/comments.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SettingsComponent } from './tools/settings/settings.component'
     QuiverComponent,
     TablesComponent,
     CitationsComponent,
-    SettingsComponent
+    SettingsComponent,
+    CommentsComponent
   ],
   imports: [
     AppRoutingModule,

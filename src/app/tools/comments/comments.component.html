@@ -1,0 +1,20 @@
+<button mat-raised-button (click)="refreshDocContents()">
+  <mat-icon>refresh</mat-icon>
+</button>
+<p *ngIf="!draft">
+  Your comments, notes, and TODOs will show up here.
+</p>
+
+<div *ngIf="todos">
+  <h3>TODOs ({{todos.length}})</h3>
+  <small>
+    Add '% TODO', '% FIXME', or similar strings and they will appear here.
+  </small>
+  <ul>
+    <li *ngFor="let todo of todos">
+      <a href="#" (click)="gotoLine(todo.line)">
+        {{todo.value}}
+      </a>
+    </li>
+  </ul>
+</div>

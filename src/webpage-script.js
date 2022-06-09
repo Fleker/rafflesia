@@ -134,5 +134,14 @@ window.addEventListener('message', (e) => {
         data: getAllProjectFiles(),
       }, e.origin)
       break
+    case 'rafflesia_read':
+      e.source.postMessage({
+        type: 'rafflesia_read',
+        data: getEntireDocContents(),
+      }, e.origin)
+      break
+    case 'rafflesia_goto':
+      jumpToLine(parsedData, 0)
+      break;
   }
 })

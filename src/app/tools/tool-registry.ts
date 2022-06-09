@@ -3,6 +3,7 @@ export const tools = [
   'quiver',
   'tables',
   'citations',
+  'comments',
   'settings',
 ] as const
 
@@ -11,6 +12,7 @@ export const labels: Record<ToolId, string> = {
   quiver: 'Figures',
   tables: 'Tables',
   citations: 'Citations',
+  comments: 'Comments',
   settings: '⚙',
 }
 

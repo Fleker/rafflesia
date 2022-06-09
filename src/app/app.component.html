@@ -11,6 +11,9 @@
   <mat-tab label="{{labels.citations}}" *ngIf="hasTool('citations')">
     <tool-citations></tool-citations>
   </mat-tab>
+  <mat-tab label="{{labels.comments}}" *ngIf="hasTool('comments')">
+    <tool-comments></tool-comments>
+  </mat-tab>
   <mat-tab label="{{labels.settings}}">
     <tool-settings></tool-settings>
   </mat-tab>

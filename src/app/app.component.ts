@@ -16,6 +16,7 @@ export class AppComponent {
     quiver: true,
     tables: true,
     citations: true,
+    comments: true,
     settings: true,
   }
 
