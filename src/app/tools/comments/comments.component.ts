@@ -8,15 +8,15 @@ import { Event } from 'src/app/event';
 })
 export class CommentsComponent implements OnInit {
   draft?: string
-  chats?: {
+  chats: {
     line: number
     author: string
     value: string
-  }[]
-  todos?: {
+  }[] = []
+  todos: {
     line: number
     value: string
-  }[]
+  }[] = []
 
   constructor() { }
 

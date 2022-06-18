@@ -5,7 +5,7 @@
   Your comments, notes, and TODOs will show up here.
 </p>
 
-<div *ngIf="chats">
+<div *ngIf="chats.length > 0">
   <h3>Messages ({{chats.length}})</h3>
   <small>
     Add '% > (name): text' and they will appear here.
@@ -22,7 +22,7 @@
   </ul>
 </div>
 
-<div *ngIf="todos">
+<div *ngIf="todos.length > 0">
   <h3>TODOs ({{todos.length}})</h3>
   <small>
     Add '% TODO', '% FIXME', or similar strings and they will appear here.
