@@ -3,7 +3,7 @@
   "description": "Handy tools for Overleaf",
   "version": "1.0.0",
   "manifest_version": 3,
-  "permissions": ["activeTab", "scripting"],
+  "permissions": [],
   "host_permissions": ["https://*.overleaf.com/project/*"],
   "content_scripts": [
       {
