@@ -22,6 +22,14 @@
   </ul>
 </div>
 
+<div *ngIf="chats.length === 0">
+  <small>
+    <strong>No Messages Found</strong>
+    <br>
+    Add '% > (name): text' and they will appear here.
+  </small>
+</div>
+
 <div *ngIf="todos.length > 0">
   <h3>TODOs ({{todos.length}})</h3>
   <small>
@@ -34,4 +42,12 @@
       </a>
     </li>
   </ul>
+</div>
+
+<div *ngIf="todos.length === 0">
+  <small>
+    <strong>No TODOs Found</strong>
+    <br>
+    Add '% TODO: text' and they will appear here.
+  </small>
 </div>
