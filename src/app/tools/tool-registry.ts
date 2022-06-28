@@ -1,16 +1,16 @@
 export const tools = [
-  'wiktionary',
-  'quiver',
-  'tables',
+  // 'wiktionary',
+  // 'quiver',
+  // 'tables',
   'citations',
   'comments',
   'settings',
 ] as const
 
 export const labels: Record<ToolId, string> = {
-  wiktionary: 'Wiktionary',
-  quiver: 'Figures',
-  tables: 'Tables',
+  // wiktionary: 'Wikipedia',
+  // quiver: 'Figures',
+  // tables: 'Tables',
   citations: 'Citations',
   comments: 'Comments',
   settings: '⚙',

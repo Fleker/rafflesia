@@ -12,9 +12,9 @@ export class AppComponent {
   title = 'rafflesia';
   labels = labels;
   tools: ToolSettings = {
-    wiktionary: false,
-    quiver: true,
-    tables: true,
+    // wiktionary: false,
+    // quiver: true,
+    // tables: true,
     citations: true,
     comments: true,
     settings: true,
