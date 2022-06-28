@@ -148,14 +148,9 @@ export class CitationsComponent implements OnInit {
       const fnc = await this.firebase.getFunction('proxy')
       const res = await fnc({url}) as HttpsCallableResult<string>
       const html = await res.data
-      // <a _ngcontent-vov-c185="" append-to-href="?src=document" target="_blank" href="https://doi.org/10.1109/TSG.2021.3124490">10.1109/TSG.2021.3124490</a>
       const doi = html.match(/https:\/\/doi.org\/([A-Za-z0-9./]+)/)![1] // Assume
       console.log(`Contacting DOI with ${doi}`)
       // Use custom format URL instead.
-      // Use same impl as in-browser fetch.
-      /**
-       * @ARTICLE{6598993,  author={},  journal={IEEE Vision for Smart Grid Control: 2030 and Beyond Reference Model},   title={IEEE Vision for Smart Grid Controls: 2030 and Beyond Reference Model},   year={2013},  volume={},  number={},  pages={1-10},  doi={10.1109/IEEESTD.2013.6598993}}
-       */
       // https://github.com/davidagraf/doi2bib2/blob/master/server/doi2bib.js#L7
       const citationFetch = await fetch(`https://doi.org/${doi}`, {
         headers: {

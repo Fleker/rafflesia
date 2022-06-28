@@ -15,7 +15,8 @@ import { QuiverComponent } from './tools/quiver/quiver.component';
 import { TablesComponent } from './tools/tables/tables.component';
 import { CitationsComponent } from './tools/citations/citations.component';
 import { SettingsComponent } from './tools/settings/settings.component';
-import { CommentsComponent } from './tools/comments/comments.component'
+import { CommentsComponent } from './tools/comments/comments.component';
+import { WordCounterComponent } from './tools/word-counter/word-counter.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CommentsComponent } from './tools/comments/comments.component'
     TablesComponent,
     CitationsComponent,
     SettingsComponent,
-    CommentsComponent
+    CommentsComponent,
+    WordCounterComponent
   ],
   imports: [
     AppRoutingModule,

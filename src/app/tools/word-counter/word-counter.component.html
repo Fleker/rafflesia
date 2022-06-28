@@ -1,0 +1,20 @@
+<button mat-raised-button (click)="refreshDocContents()">
+  <mat-icon>refresh</mat-icon>
+</button>
+
+<h2>Count</h2>
+<ul>
+  <li>Characters: {{counter.characters}}</li>
+  <li>Words: {{counter.words}}</li>
+  <li>Paragraphs: {{counter.paragraphs}}</li>
+</ul>
+
+<h2>Most Common Words</h2>
+<span *ngFor="let word of frequency.most" class="word">
+  {{word[0]}} <em>({{word[1]}})</em>
+</span>
+
+<h2>Least Common Words</h2>
+<span *ngFor="let word of frequency.least" class="word">
+  {{word[0]}} <em>({{word[1]}})</em>
+</span>

@@ -17,6 +17,7 @@ export class AppComponent {
     // tables: true,
     citations: true,
     comments: true,
+    wordcloud: true,
     settings: true,
   }
 
