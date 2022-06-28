@@ -6,3 +6,8 @@
     {{labels[tool]}}
   </mat-slide-toggle>
 </div>
+
+<h2>Other Settings</h2>
+<mat-slide-toggle [checked]="isDebugMode" (change)="updateDebugMode($event)">
+  Debug
+</mat-slide-toggle>

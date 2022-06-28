@@ -143,5 +143,12 @@ window.addEventListener('message', (e) => {
     case 'rafflesia_goto':
       jumpToLine(parsedData, 0)
       break;
+    case 'rafflesia_alert':
+      showNativeAlert(parsedData.title, parsedData.body)
+      break;
+    case 'rafflesia_iframe':
+      // Requires refresh
+      localStorage['rafflesia_iframe'] = parsedData
+      break;
   }
 })

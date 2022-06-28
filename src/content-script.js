@@ -30,7 +30,7 @@ function toggle() {
     heightAdjuster.style.display = 'block'
     toggler.innerText = '▼'
   } else {
-    iframe.style.height = `${defaultClosed}px` // TODO: Make this flexible
+    iframe.style.height = `${defaultClosed}px`
     iframe.style.top = `calc(100vh - ${defaultClosed}px)`
     toggler.style.top = `calc(100vh - ${defaultClosed}px)`
     toggler.innerText = '▲'
@@ -50,9 +50,7 @@ function adjustExit() {
 function adjustHeight(ev) {
   if (isAdjust) {
     height = window.innerHeight - ev.clientY - 12 // Since we're going from bottom
-    console.debug('Adjust height to', height)
     modifyHeight()
-    console.log(ev)
   }
 }
 
@@ -89,7 +87,14 @@ heightAdjuster.onmouseup = adjustExit
 document.body.appendChild(heightAdjuster)
 
 const iframe = document.createElement('iframe')
-iframe.src = 'http://localhost:4200' // TODO: Update at some point
+iframe.classList.add('rafflesia')
+const iframeSrc = (() => {
+  if (localStorage['rafflesia_iframe'] === 'debug') {
+    return 'http://localhost:4200'
+  }
+  return 'https://rafflesia-overleaf.web.app'
+})()
+iframe.src = iframeSrc
 iframe.style.position = 'fixed'
 iframe.style.zIndex = 998
 iframe.style.width = '100vw'
