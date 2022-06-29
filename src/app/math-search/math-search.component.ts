@@ -87,6 +87,18 @@ export class MathSearchComponent implements OnInit {
     this.selection = undefined
   }
 
+  copy() {
+    let templateStr = this.selection!.latex
+    for (let i = 0; i < this.selectionParams.length; i++) {
+      templateStr = templateStr.replace(`$${i}`, this.selectionParams[i])
+    }
+    const msg: Event = {
+      type: 'rafflesia_copy',
+      data: templateStr,
+    }
+    window.parent.postMessage(msg, '*')
+  }
+
   insert() {
     let templateStr = this.selection!.latex
     for (let i = 0; i < this.selectionParams.length; i++) {

@@ -1,0 +1,10 @@
+Minutes: <input type="number" [(ngModel)]="minutes" (change)="reset()" min="1" />
+<br>
+<strong>{{renderString}}</strong>
+<br>
+<button mat-raised-button (click)="toggle()">
+  <mat-icon>{{icon}}</mat-icon>
+</button>
+<button mat-raised-button (click)="reset()" *ngIf="seconds != minutes * 60">
+  <mat-icon>refresh</mat-icon>
+</button>

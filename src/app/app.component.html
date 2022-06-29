@@ -17,6 +17,9 @@
   <mat-tab label="{{labels.maths}}" *ngIf="hasTool('maths')">
     <tool-maths></tool-maths>
   </mat-tab>
+  <mat-tab label="{{labels.pomodoro}}" *ngIf="hasTool('pomodoro')">
+    <tool-pomodoro></tool-pomodoro>
+  </mat-tab>
   <mat-tab label="{{labels.wordcloud}}" *ngIf="hasTool('wordcloud')">
     <tool-wordcloud></tool-wordcloud>
   </mat-tab>

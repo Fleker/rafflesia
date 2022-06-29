@@ -5,6 +5,7 @@ export const tools = [
   'citations',
   'comments',
   'maths',
+  'pomodoro',
   'wordcloud',
   'settings',
 ] as const
@@ -16,6 +17,7 @@ export const labels: Record<ToolId, string> = {
   citations: 'Citations',
   comments: 'Comments',
   maths: 'Math Catalog',
+  pomodoro: 'Timer',
   wordcloud: 'Word Cloud',
   settings: '⚙',
 }

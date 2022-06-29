@@ -17,7 +17,8 @@ import { CitationsComponent } from './tools/citations/citations.component';
 import { SettingsComponent } from './tools/settings/settings.component';
 import { CommentsComponent } from './tools/comments/comments.component';
 import { WordCounterComponent } from './tools/word-counter/word-counter.component';
-import { MathSearchComponent } from './math-search/math-search.component'
+import { MathSearchComponent } from './math-search/math-search.component';
+import { PomodoroTimerComponent } from './pomodoro-timer/pomodoro-timer.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MathSearchComponent } from './math-search/math-search.component'
     SettingsComponent,
     CommentsComponent,
     WordCounterComponent,
-    MathSearchComponent
+    MathSearchComponent,
+    PomodoroTimerComponent
   ],
   imports: [
     AppRoutingModule,

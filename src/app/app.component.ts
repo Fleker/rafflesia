@@ -18,6 +18,7 @@ export class AppComponent {
     citations: true,
     comments: true,
     maths: true,
+    pomodoro: true,
     wordcloud: true,
     settings: true,
   }
