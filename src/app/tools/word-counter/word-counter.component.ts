@@ -3,7 +3,7 @@ import { Event } from 'src/app/event';
 
 const COMMON = [
   'the', 'that', 'is', 'and', 'of', 'be', 'can', 'as', 'a', 'in', 'then', 'an',
-  'this',
+  'this', 'i', 'we', 'us', 'you', 'he', 'she', 'they', 'to',
 ]
 
 @Component({

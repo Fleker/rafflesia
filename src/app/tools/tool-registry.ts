@@ -4,8 +4,9 @@ export const tools = [
   // 'tables',
   'citations',
   'comments',
-  'settings',
+  'maths',
   'wordcloud',
+  'settings',
 ] as const
 
 export const labels: Record<ToolId, string> = {
@@ -14,6 +15,7 @@ export const labels: Record<ToolId, string> = {
   // tables: 'Tables',
   citations: 'Citations',
   comments: 'Comments',
+  maths: 'Math Catalog',
   wordcloud: 'Word Cloud',
   settings: '⚙',
 }
