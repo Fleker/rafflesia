@@ -11,6 +11,7 @@ interface MathTopicEntry {
   params: {
     label: string
     type: 'number' | 'text'
+    placeholder?: string
   }[]
 }
 
@@ -22,6 +23,17 @@ const CATALOG: MathTopicEntry[] = [{
     label: 'Numerator', type: 'number',
   }, {
     label: 'Denominator', type: 'number',
+  }]
+}, {
+  title: 'Multiline Equation',
+  tags: ['multiline', 'align', 'lines'],
+  latex: "\\begin{align*} x &= $0 \\\\ &= $1 \\\\ &= $2 \\end{align*}",
+  params: [{
+    label: 'Equation line 1', type: 'text', placeholder: '(5 + 5) * (6 + 6)',
+  }, {
+    label: 'Equation line 2', type: 'text', placeholder: '10 * 12',
+  }, {
+    label: 'Equation line 3', type: 'text', placeholder: '120',
   }]
 }]
 
@@ -53,7 +65,7 @@ export class MathSearchComponent implements OnInit {
       if (param.type === 'number') {
         this.selectionParams[i] = Math.floor(Math.random() * 10)
       } else if (param.type === 'text') {
-        this.selectionParams[i] = 'Placeholder'
+        this.selectionParams[i] = param.placeholder || 'Placeholder'
       }
     })
     this.rerenderTemplate()
@@ -65,7 +77,7 @@ export class MathSearchComponent implements OnInit {
       templateStr = templateStr.replace(`$${i}`, this.selectionParams[i])
     }
     console.log(this.selection!.latex, this.selectionParams, templateStr)
-    const html = katex.renderToString(templateStr)
+    const html = katex.renderToString(templateStr, {displayMode: true})
     window.requestAnimationFrame(() => {
       this.latexRender!.nativeElement!.innerHTML = html
     })
