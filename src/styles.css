@@ -13,6 +13,14 @@ mat-tab, mat-tab-group {
   color: white;
 }
 
+a {
+  color: #09f;
+}
+
+mat-tab-body {
+  height: calc(100vh - 64px);
+}
+
 span.diff-neutral {
   color: var(--primary-text-color);
 }
