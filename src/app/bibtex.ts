@@ -40,7 +40,7 @@ export function parseBibtexString(citation: string): BibTeX {
     // Keep breaking apart the string until we're out
     const field = paramMatches[1]
     const value = paramMatches[2]
-    bibtex[field] = value.trim().replace(/},$/, '')
+    bibtex[field] = value.trim().replace(/},?$/, '')
     // Restart
     const index = citation.indexOf(paramMatches[0])
     citation = citation.substring(index + paramMatches[0].length)

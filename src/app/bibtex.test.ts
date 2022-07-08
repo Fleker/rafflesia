@@ -54,7 +54,11 @@ test('Parse Signal Integrity', t => {
     isbn="978-3-662-44202-9"
     }`
   const citation2 = B.parseBibtexString(bibtex2)
-  t.is(citation2.title, 'Understanding Typescript')
+  t.is(citation2.title, 'Understanding TypeScript')
+  
+  const bibtex3 = `@ARTICLE{thermal,  author={Zhou, Minxuan and Prodromou, Andreas and Wang, Rui and Yang, Hailong and Qian, Depei and Tullsen, Dean},  journal={IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems},   title={Temperature-Aware DRAM Cache Management—Relaxing Thermal Constraints in 3-D Systems},   year={2020},  volume={39},  number={10},  pages={1973-1986},  doi={10.1109/TCAD.2019.2927528}}`
+  const citation3 = B.parseBibtexString(bibtex3)
+  t.is(citation3.doi, '10.1109/TCAD.2019.2927528')
 })
 
 test('Bibtex URLs', t => {
