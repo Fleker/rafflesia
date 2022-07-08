@@ -38,6 +38,23 @@ test('Parse Signal Integrity', t => {
     'ISSN',
     'month',
   ])
+
+  const bibtex2 = `@InProceedings{typescript,
+    author="Bierman, Gavin
+    and Abadi, Mart{\'i}n
+    and Torgersen, Mads",
+    editor="Jones, Richard",
+    title="Understanding TypeScript",
+    booktitle="ECOOP 2014 -- Object-Oriented Programming",
+    year="2014",
+    publisher="Springer Berlin Heidelberg",
+    address="Berlin, Heidelberg",
+    pages="257--281",
+    abstract="TypeScript is an extension of JavaScript intended to enable easier development of large-scale JavaScript applications. While every JavaScript program is a TypeScript program, TypeScript offers a module system, classes, interfaces, and a rich gradual type system. The intention is that TypeScript provides a smooth transition for JavaScript programmers---well-established JavaScript programming idioms are supported without any major rewriting or annotations. One interesting consequence is that the TypeScript type system is not statically sound by design. The goal of this paper is to capture the essence of TypeScript by giving a precise definition of this type system on a core set of constructs of the language. Our main contribution, beyond the familiar advantages of a robust, mathematical formalization, is a refactoring into a safe inner fragment and an additional layer of unsafe rules.",
+    isbn="978-3-662-44202-9"
+    }`
+  const citation2 = B.parseBibtexString(bibtex2)
+  t.is(citation2.title, 'Understanding Typescript')
 })
 
 test('Bibtex URLs', t => {
@@ -69,4 +86,9 @@ test('Bibtex URLs', t => {
     }`
   const citation2 = B.parseBibtexString(bibtex2)
   t.is(B.getExternalLink(citation2), 'https://www.usenix.org/conference/hotstorage20/presentation/zheng')
+
+  const bibtex3 = ` @misc{nand_micron, title={Technical Note NAND Flash 101: An Introduction to NAND Flash and How to Design It In to Your Next Product}, url={https://user.eng.umd.edu/~blj/CS-590.26/micron-tn2919.pdf}, author={Micron Technology Inc}, year={2006}}`
+  const citation3 = B.parseBibtexString(bibtex3)
+  t.is(B.getExternalLink(citation3), 'https://user.eng.umd.edu/~blj/CS-590.26/micron-tn2919.pdf')
+
 })

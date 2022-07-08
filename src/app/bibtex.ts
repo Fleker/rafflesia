@@ -6,6 +6,22 @@ export interface BibTeX {
   [field: string]: string
 }
 
+export function parseBibtexFile(citations: string): BibTeX[] {
+  const res: BibTeX[] = []
+  const regex = new RegExp('@\\w+\\s?{\\w+,.+?}\\n', 's')
+  let match = regex.exec(citations.trim())
+  while (match !== null) {
+    console.log(match[0])
+    const bib = parseBibtexString(match[0])
+    res.push(bib)
+    // Go to next
+    const index = citations.indexOf(match[0])
+    citations = citations.substring(index + match[0].length)
+    match = regex.exec(citations.trim())
+  } 
+  return res
+}
+
 export function parseBibtexString(citation: string): BibTeX {
   const metadataRegex = new RegExp('^@(\\w+)\\s?{(\\w+),')
   const metadataMatch = metadataRegex.exec(citation.trim().replace(/\n/g, ' '))
@@ -18,7 +34,7 @@ export function parseBibtexString(citation: string): BibTeX {
     id,
   }
 
-  const paramRegex = new RegExp('(\\w+)\\s?=\\s?{([\\w\\d\\s-{}.(),:;/]*)},?')
+  const paramRegex = new RegExp('(\\w+)\\s?=\\s?[{"]([\\w\\d\\s-—{}.(),:;/!?~]*)[}"],?')
   let paramMatches = paramRegex.exec(citation)
   while (paramMatches !== null) {
     // Keep breaking apart the string until we're out

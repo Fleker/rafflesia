@@ -26,3 +26,12 @@
 <br>
 <textarea disabled>{{bibtex}}</textarea>
 <br><br>
+<button mat-raised-button (click)="parse()">
+  Read BibTeX file
+</button>
+<ul>
+  <li *ngFor="let cite of citations">
+    <a href="{{cite.url}}" *ngIf="cite.url" target="_blank">{{cite.title}}</a>
+    <span *ngIf="!cite.url">{{cite.title}}</span>
+  </li>
+</ul>

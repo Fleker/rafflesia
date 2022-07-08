@@ -3,6 +3,7 @@ import { HttpsCallableResult } from '@firebase/functions';
 import { Event } from 'src/app/event';
 import { FirebaseService } from 'src/app/firebase.service';
 import * as C from 'src/app/citations'
+import { getExternalLink, parseBibtexFile } from 'src/app/bibtex';
 
 @Component({
   selector: 'tool-citations',
@@ -12,7 +13,12 @@ import * as C from 'src/app/citations'
 export class CitationsComponent implements OnInit {
   articleUrl?: string
   bibtex?: string
+  draft?: string
   mainbib = ['main.bib']
+  citations: {
+    url?: string
+    title: string
+  }[] = []
 
   constructor(private firebase: FirebaseService) {}
 
@@ -24,6 +30,11 @@ export class CitationsComponent implements OnInit {
           .filter((x: string) => x.endsWith('.bib'))
         this.mainbib = files
       }
+
+      if (parsedEvent?.type === 'rafflesia_read') {
+        this.draft = parsedEvent.data
+        this.parse()
+      }
     })
 
     this.refreshProjectFiles()
@@ -32,6 +43,14 @@ export class CitationsComponent implements OnInit {
   refreshProjectFiles() {
     const msg: Event = {
       type: 'rafflesia_getProjectFiles',
+      data: {},
+    }
+    window.parent.postMessage(msg, '*')
+  }
+
+  refreshDocContents() {
+    const msg: Event = {
+      type: 'rafflesia_read',
       data: {},
     }
     window.parent.postMessage(msg, '*')
@@ -90,5 +109,15 @@ export class CitationsComponent implements OnInit {
       data: this.bibtex
     }
     window.parent.postMessage(msg, '*')
+  }
+
+  parse() {
+    const bibtexs = parseBibtexFile(this.draft ?? '')
+    console.log(bibtexs)
+    this.citations = bibtexs.map(bibtex => ({
+      title: bibtex.title ?? bibtex.id,
+      url: getExternalLink(bibtex)
+    }))
+    console.log(this.citations)
   }
 }
