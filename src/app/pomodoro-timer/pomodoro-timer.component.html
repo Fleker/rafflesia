@@ -1,4 +1,5 @@
-Minutes: <input type="number" [(ngModel)]="minutes" (change)="reset()" min="1" />
+Minutes:
+<input type="number" [(ngModel)]="minutes" (change)="reset()" min="1" [disabled]="isActive" />
 <br>
 <strong>{{renderString}}</strong>
 <br>

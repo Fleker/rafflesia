@@ -35,7 +35,59 @@ const CATALOG: MathTopicEntry[] = [{
   }, {
     label: 'Equation line 3', type: 'text', placeholder: '120',
   }]
-}]
+}, {
+  title: 'Square Root',
+  tags: ['sqrt', 'square', 'root'],
+  latex: "\\sqrt{$0}",
+  params: [{
+    label: 'Number', type: 'number',
+  }]
+}, {
+  title: 'Union',
+  tags: ['union', 'cup', 'add', 'set', 'linear'],
+  latex: '\\cup',
+  params: [],
+}, {
+  title: 'Intersection',
+  tags: ['intersection', 'cap', 'add', 'set', 'linear'],
+  latex: '\\cap',
+  params: [],
+}, {
+  title: 'Implies',
+  tags: ['implies', 'linear', 'proof'],
+  latex: '\\implies',
+  params: [],
+}, {
+  title: 'Subset',
+  tags: ['set', 'subset', 'linear'],
+  latex: '\\subset',
+  params: []
+}, {
+  title: 'Superset',
+  tags: ['set', 'supset', 'superset', 'linear'],
+  latex: '\\supset',
+  params: []
+}, {
+  title: 'Item In Set',
+  tags: ['set', 'in', 'linear'],
+  latex: '\\in',
+  params: []
+}, {
+  title: 'Item Not In Set',
+  tags: ['set', 'in', 'not', 'linear'],
+  latex: '\\notin',
+  params: []
+}, {
+  title: 'Not Equals',
+  tags: ['neq', 'equal', 'not', 'algebra'],
+  latex: '\\neq',
+  params: []
+}, {
+  title: 'OPlus',
+  tags: ['plus', 'circle', 'set', 'linear'],
+  latex: '\\oplus',
+  params: []
+},]
 
 @Component({
   selector: 'tool-maths',
